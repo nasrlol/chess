@@ -8,8 +8,16 @@ struct knight;
 struct rook;
 struct bishop;
 
-int main()
-{
-    printf("chess...");
-    return 0;
+
+void draw_chess_grid();
+
+int main(void) {
+    InitWindow(1024, 768, "chess");
+    printf("initialized the window");
+    while (!WindowShouldClose()) {
+        BeginDrawing();
+        ClearBackground(BLACK);
+        EndDrawing();
+    }
+    CloseWindow();
 }
