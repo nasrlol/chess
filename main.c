@@ -2,56 +2,54 @@
 #include <raylib.h>
 
 #define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
+#define WINDOW_HEIGHT 800
 
-union pieces {
-    struct {
-        void (*move)(struct king *);
+struct king {
+    void (*move)(struct king *);
 
-        int x_position;
-        int y_position;
-        int value_points = 20;
-    } king;
+    int x_position;
+    int y_position;
+    int value_points;
+};
 
-    struct {
-        void (*move)(struct queen *);
+struct queen {
+    void (*move)(struct queen *);
 
-        int x_position;
-        int y_position;
-        int value_points = 6;
-    } queen;
+    int x_position;
+    int y_position;
+    int value_points;
+};
 
-    struct {
-        void (*move)(struct pawn *);
+struct pawn {
+    void (*move)(struct pawn *);
 
-        int x_position;
-        int y_position;
-        int value_points = 1;
-    } pawn;
+    int x_position;
+    int y_position;
+    int value_points;
+};
 
-    struct {
-        void (*move)(struct knight *);
+struct knight {
+    void (*move)(struct knight *);
 
-        int x_position;
-        int y_position;
-        int value_points = 3;
-    } knight;
+    int x_position;
+    int y_position;
+    int value_points;
+};
 
-    struct {
-        void (*move)(struct rook *);
+struct rook {
+    void (*move)(struct rook *);
 
-        int x_position;
-        int y_position;
-        int value_points = 5;
-    } rook;
+    int x_position;
+    int y_position;
+    int value_points;
+};
 
-    struct {
-        void (*move)(struct bishop *);
+struct bishop {
+    void (*move)(struct bishop *);
 
-        int x_position;
-        int y_position;
-        int value_points = 3;
-    } bishop;
+    int x_position;
+    int y_position;
+    int value_points;
 };
 
 void king_movement(struct king *, int requested[2]);
@@ -112,10 +110,11 @@ void draw_board() {
 
 
 int main(void) {
-    InitWindow(1024, 768, "chess");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Chess");
     printf("initialized the window");
     while (!WindowShouldClose()) {
         BeginDrawing();
+        draw_board();
         ClearBackground(BLACK);
         EndDrawing();
     }
