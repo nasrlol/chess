@@ -79,7 +79,15 @@ void draw_rook(struct rook *, int requested[2]);
 void draw_bishop(struct bishop *, int requested[2]);
 
 
-void draw_chess_grid();
+    // vertical line
+}
+
+/*
+ * GRID RULES
+ * -- 8x8
+ * -- first 2 and last 2 rows are occupied by pawns
+ */
+
 
 int main(void) {
     InitWindow(1024, 768, "chess");
