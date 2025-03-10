@@ -78,6 +78,28 @@ void draw_rook(struct rook *, int requested[2]);
 
 void draw_bishop(struct bishop *, int requested[2]);
 
+void draw_board();
+
+
+void king_movement(struct king *, int requested[2]) {
+    struct king new_king;
+    new_king.x_position = 0;
+    new_king.y_position = 0;
+}
+
+void draw_board() {
+    enum tile_color {
+        private_BLACK,
+        private_WHITE,
+    };
+
+    // horizontal line
+    for (int i = 0; i < WINDOW_HEIGHT; i += (WINDOW_HEIGHT / 8)) {
+        DrawRectangle(i, 0, i, WINDOW_HEIGHT, BLACK);
+        for (int j = 0; j < WINDOW_WIDTH; j += (WINDOW_WIDTH / 8)) {
+            DrawRectangle(0, j, WINDOW_WIDTH, j, WHITE);
+        }
+    }
 
     // vertical line
 }
