@@ -1,5 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <raylib.h>
+
+struct king;
+struct queen;
+struct pawn;
+struct knight;
+struct rook;
+struct bishop;
 
 int main()
 {
