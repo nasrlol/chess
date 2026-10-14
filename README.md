@@ -1,1 +1,1 @@
-Attempt at making chess in SDL
+An attempt at making chess in SDL.
